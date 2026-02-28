@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DulceApuk | Repostería Fina</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --azul-oscuro: #051e3e;
+            --azul-profundo: #0a192f;
+            --negro-aluminio: #1c1c1c;
+            --gris-metal: #2c3e50;
+            --dorado: #d4af37;
+            --blanco: #f4f4f4;
+            --texto-gris: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--azul-profundo);
+            color: var(--blanco);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background: rgba(10, 25, 47, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gris-metal);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--dorado);
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--blanco);
+            letter-spacing: 1px;
+        }
+        
+        .brand-name span { color: var(--dorado); }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--dorado);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(5, 30, 62, 0.8), rgba(28, 28, 28, 0.9)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero-title-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--dorado);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            margin-bottom: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--texto-gris);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--dorado), #b8860b);
+            color: var(--negro-aluminio);
+            font-weight: 600;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+
+        /* --- SPECIALTIES --- */
+        .specialties {
+            padding: 80px 10%;
+            background: var(--azul-profundo);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--blanco);
+        }
+
+        .section-title span { border-bottom: 3px solid var(--dorado); }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--negro-aluminio);
+            border: 1px solid var(--gris-metal);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--dorado);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dorado);
+        }
+
+        .card-desc {
+            color: var(--texto-gris);
+            font-size: 0.9rem;
+        }
+
+        /* --- MENÚ --- */
+        .menu-section {
+            padding: 80px 5%;
+            background: linear-gradient(to bottom, var(--azul-profundo), var(--negro-aluminio));
+        }
+
+        .menu-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            height: 250px;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.1);
+            opacity: 0.6;
+        }
+
+        .menu-overlay {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: rgba(5, 30, 62, 0.9);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover .menu-overlay {
+            bottom: 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #000;
+            color: #777;
+            padding: 50px 5% 20px;
+            border-top: 4px solid var(--dorado);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--blanco);
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--blanco);
+        }
+        
+        .social-icons a:hover { color: var(--dorado); }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-title-img { width: 150px; height: 150px; }
+            header { flex-direction: column; padding: 15px; }
+            nav ul { margin-top: 15px; gap: 15px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <div class="logo-container">
+            <!-- Cambié la imagen del logo por un Cupcake -->
+            <img src="https://images.unsplash.com/photo-1571875257727-256c39da42af?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Logo" class="logo-img">
+            <div class="brand-name">Dulce<span>Apuk</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#delicioso">Delicioso</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <img src="https://images.unsplash.com/photo-1571875257727-256c39da42af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pastel Principal" class="hero-title-img">
+        
+        <h1>DulceApuk</h1>
+        <p>Donde el arte se encuentra con el sabor. Experimenta la magia del chocolate y la suavidad de la repostería fina.</p>
+        <a href="#menu" class="btn-primary">Ver Menú</a>
+    </section>
+
+    <!-- Especialidades -->
+    <section id="delicioso" class="specialties">
+        <h2 class="section-title"><span>Nuestras Especialidades</span></h2>
+        
+        <div class="grid-container">
+            <!-- Lo más delicioso -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lo más delicioso" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Lo Más Delicioso</h3>
+                    <p class="card-desc">Texturas esponjosas y cremosas que se deshacen en tu boca.</p>
+                </div>
+            </div>
+
+            <!-- Lo más dulce -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lo más dulce" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Lo Más Dulce</h3>
+                    <p class="card-desc">Dulces irresistibles que endulzan tus momentos especiales.</p>
+                </div>
+            </div>
+
+            <!-- Lo más sabroso -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lo más sabroso" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Lo Más Sabroso</h3>
+                    <p class="card-desc">Sabores únicos diseñados para los paladares más exigentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menú Galería -->
+    <section id="menu" class="menu-section">
+        <h2 class="section-title"><span>Menú Galeria</span></h2>
+        
+        <div class="menu-gallery">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Repostería">
+                <div class="menu-overlay">Tortas</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cupcakes">
+                <div class="menu-overlay">Cupcakes</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1571875257727-256c39da42af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Chocolate">
+                <div class="menu-overlay">Chocolates</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galletas">
+                <div class="menu-overlay">Galletas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>DulceApuk</h4>
+                <p>Repostería artesanal con los mejores ingredientes.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-envelope"></i> contacto@dulceapuk.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 DulceApuk. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
